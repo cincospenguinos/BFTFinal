@@ -33,7 +33,7 @@ end
 
 topics.each do |topic|
 	data[topic] = []
-	videos = Yt::Collections::Videos.new.where(q: topic, order: 'viewCount')
+	videos = Yt::Collections::Videos.new.where(q: topic)
 	videos.each do |video|
 		break if data[topic].size == THRESHOLD
 		data[topic] << as_struct(video)
